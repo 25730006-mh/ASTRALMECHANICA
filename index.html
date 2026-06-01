@@ -1013,6 +1013,34 @@ const game = {
             choices:[{title:"과거로 역행", sub:"기억을 되짚어 엔진실로 돌아간다.", effect:{}, preview:"RETURN TO S4", fx:"fx-loop", next:'S4'}]
         },
 
+        /* ─── S04-R_T 안전밸브 경로 ─── */
+        'S4_R_T': {
+            scene:"압력 해제", loc:"S4_R_T - Safety Valve",
+            narrative:"증기가 굉음과 함께 뿜어져 나온다. 온도계 바늘이 서서히 내려가고, 경보음이 하나씩 꺼진다. 위기는 넘겼다. 하지만 에너지를 잃었다.",
+            speaker:"에드워드 (Edward)",
+            text:
+`(밸브를 돌리는 순간, 뜨거운 증기가 천장을 향해 폭발하듯 뿜어져 나온다. 나노는 얼굴을 가린다. 열기가 고글을 통해서도 느껴진다.)
+
+에드워드: "잘했어! 압력이 떨어진다!"
+
+(조금씩, 조금씩. 경보 램프들이 붉은색에서 주황, 노랑으로 바뀐다.)
+
+"시스템이 안정됐어. 하지만..."
+
+(에드워드의 표정이 굳는다. 계기판의 출력 수치를 바라보며.)
+
+"엔진 출력이 40% 이하로 떨어졌어. 상층부 게이트를 열기 충분한지..."
+
+(나노는 식어가는 파이프를 손으로 짚어본다. 뜨거움은 사라졌지만, 멈춰 있다. 무언가가 빠져나간 것 같은 느낌.)
+
+나노: "...갈 수 있어. 아직."
+
+(목소리가 낮다. 확신인지 자기암시인지 구분하기 어렵다.)`,
+            choices:[
+                {title:"집무실 진입", sub:"낮은 출력이라도 전진한다.", effect:{}, preview:"NEXT STEP", fx:"fx-seraph", next:'S5'}
+            ]
+        },
+
         /* ─── S04-R 판정 구간 ─── */
         'S4_R_F': {
             scene:"판정 구간", loc:"System Checkpoint",
@@ -1288,8 +1316,8 @@ const game = {
         /* ── 이미지 교체 ── */
         this.currentId = id;
         let imgSrc = '';
-        if (id === 'S04-R') {
-            const imgKey = (this.stats.n > 90) ? 'S04_R_F' : 'S4_R_T';
+        if (id === 'S4_R_F') {
+            const imgKey = (this.stats.n > 90) ? 'S4_R_F' : 'S4_R_T';
             imgSrc = this.assets[imgKey] || '';
         } else if (id === 'S_Loop') {
             imgSrc = this.assets['S_Loop'] || '';
@@ -1420,6 +1448,7 @@ const game = {
         'S2':        'fx-garden',
         'S3':        'fx-neon',
         'S4':        'fx-engine',
+        'S4_R_T':    'fx-data',
         'S4_R_F':      'fx-data',
         'S_Loop':     'fx-loop',
         'S5':        'fx-seraph',
