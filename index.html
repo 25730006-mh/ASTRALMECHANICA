@@ -389,7 +389,7 @@
             background:
                 linear-gradient(to bottom,rgba(5,3,10,0.72) 0%,rgba(5,3,10,0.28) 22%,rgba(5,3,10,0.05) 45%,rgba(5,3,10,0.58) 72%,rgba(5,3,10,0.96) 100%),
                 radial-gradient(ellipse at center,transparent 33%,rgba(5,3,10,0.68) 100%),
-                url('./image/Cover.png') center/cover no-repeat;
+                url('image/Cover.png') center/cover no-repeat;
             opacity:1; visibility:visible;
             transition:opacity 1.2s ease, visibility 1.2s;
         }
@@ -847,20 +847,19 @@ const game = {
     isTransitioning: false,
 
     assets: {
-        'S1':        './image/S1.png',
-        'S2':        './image/S2.png',
-        'S3':        './image/S3.png',
-        'S4':        './image/S4.png',
-        'S4_R_T':    './image/S4_R_T.png',
-        'S4_R_F':    './image/S4_R_F.png',
-        'S_Loop':     './image/S_Loop.png',
-        'S5':        './image/S5.png',
-        'S6':        './image/S6.png',
-        'S7':        './image/S7.png',
-        'S8':        './image/S8.png',
-        'END_A':      './image/END_A.png',
-        'END_B':      './image/END_B.png',
-        'G_Over': './image/G_Over.png',
+        'S1':        'image/S1.png',
+        'S2':        'image/S2.png',
+        'S3':        'image/S3.png',
+        'S4':        'image/S4.png',
+        'S4_R_T':    'image/S4_R_T.png',
+        'S4_R_F':    'image/S4_R_F.png',
+        'S_Loop':     'image/S_Loop.png',
+        'S5':        'image/S5.png',
+        'S6':        'image/S6.png',
+        'S7':        'image/S7.png',
+        'END_A':      'image/END_A.png',
+        'END_B':      'image/END_B.png',
+        'G_Over': 'image/G_Over.png',
     },
 
     data: {
@@ -1140,7 +1139,7 @@ const game = {
                 ]
         },
 
-        /* ─── S07 최종 대결 ─── */
+        /* ─── S7 최종 대결 ─── */
         'S7': {
             scene:"최종 대결", loc:"S7 - Master Gear",
             narrative:"도시의 심장부, 거대한 황금 기어 앞에 선다. 지름이 수십 미터는 될 거대한 톱니바퀴가 멈춰 있다. 나노의 배낭에서 억눌려 있던 에너지가 황금빛 섬광이 되어 폭발하며 주변 노이즈를 밀어낸다.",
@@ -1290,7 +1289,7 @@ const game = {
         this.currentId = id;
         let imgSrc = '';
         if (id === 'S04-R') {
-            const imgKey = (this.stats.n > 90) ? 'S04-R_F' : 'S4_R_T';
+            const imgKey = (this.stats.n > 90) ? 'S04_R_F' : 'S4_R_T';
             imgSrc = this.assets[imgKey] || '';
         } else if (id === 'S_Loop') {
             imgSrc = this.assets['S_Loop'] || '';
@@ -1312,7 +1311,7 @@ const game = {
         document.getElementById('scene-label').innerText    = scene.scene;
         document.getElementById('location-label').innerText = scene.loc;
         /* GameOver 전용 스타일 토글 */
-        document.body.classList.toggle('is-gameover', id === 'S-GameOver');
+        document.body.classList.toggle('is-gameover', id === 'G_Over');
         document.getElementById('narrative').innerText      = scene.narrative;
         document.getElementById('speaker').innerText        = scene.speaker;
         document.getElementById('dialogue').innerText       =
